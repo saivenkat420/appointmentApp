@@ -12,9 +12,9 @@ class Appointments extends Component {
     isStarredButtonSelected: false,
   }
 
-  addAppointment = async () => {
+  addAppointment = () => {
     const {title, date} = this.state
-    await this.setState(prevState => ({
+    this.setState(prevState => ({
       fullAppointmentList: [
         ...prevState.fullAppointmentList,
         {title, date, isStarred: false, id: v4()},
@@ -27,8 +27,8 @@ class Appointments extends Component {
     this.setState({date: ''})
   }
 
-  showStarredItems = async () => {
-    await this.setState(prevState => ({
+  showStarredItems = () => {
+    this.setState(prevState => ({
       isStarredButtonSelected: !prevState.isStarredButtonSelected,
     }))
     const {isStarredButtonSelected} = this.state
@@ -45,8 +45,8 @@ class Appointments extends Component {
     }
   }
 
-  starredItem = async id => {
-    await this.setState(prevState => ({
+  starredItem = id => {
+    this.setState(prevState => ({
       fullAppointmentList: prevState.fullAppointmentList.map(eachItem => {
         if (id === eachItem.id) {
           return {...eachItem, isStarred: !eachItem.isStarred}
