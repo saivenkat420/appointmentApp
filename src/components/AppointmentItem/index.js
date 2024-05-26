@@ -17,7 +17,7 @@ class AppointmentItem extends Component {
         : 'https://assets.ccbp.in/frontend/react-js/appointments-app/filled-star-img.png'
     }
     return (
-      <li className="appointment-item-container">
+      <li className="appointment-item-container" id={id}>
         <div className="appointment-details-container">
           <p className="appointment-title">{title}</p>
           <button

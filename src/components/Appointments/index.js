@@ -20,8 +20,9 @@ class Appointments extends Component {
         {title, date, isStarred: false, id: v4()},
       ],
     }))
-    const {fullAppointmentList} = this.state
-    this.setState({appointmentList: [...fullAppointmentList]})
+    this.setState(prevState => ({
+      appointmentList: prevState.fullAppointmentList,
+    }))
     this.setState({title: ''})
     this.setState({date: ''})
   }
@@ -77,7 +78,7 @@ class Appointments extends Component {
         <div className="main-container-1">
           <div className="main-container-2">
             <div className="sub-container">
-              <form className="content-container">
+              <form className="content-container" onSubmit={this.submitForm}>
                 <h1 className="content-container-head">Add Appointment</h1>
                 <div className="sub-content-container">
                   <label className="input-specifier" htmlFor="#title">
